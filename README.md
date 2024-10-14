@@ -1,6 +1,9 @@
 # 릴리즈 노트 자동 생성 예제
 이 예제는 릴리즈 노트를 자동으로 생성하는 예제입니다. 릴리즈 노트 자동 생성을 위해 Github Action을 활용해야 하며, Pull Request와 함께 Label을 활용하는 방법에 대해 소개합니다.
 
+## Warning
+
+처음 release 노트 생성할 때 base 태그가 없다면 `v0.1.0`으로 생성됩니다. 따라서 release 노트 생성 시 필요하다면 tag를 수정해주어야 합니다.
 
 ## Workflows - .github/workflows/drafter.yaml
 
