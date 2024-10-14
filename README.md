@@ -3,7 +3,7 @@
 
 ## Warning
 
-처음 release 노트 생성할 때 base 태그가 없다면 `v0.1.0`으로 생성됩니다. 따라서 release 노트 생성 시 필요하다면 tag를 수정해주어야 합니다.
+drafter.yaml 파일은 가장 마지막 tag를 기준으로 릴리즈 버전을 체크합니다. 만약 릴리즈 한 tag 정보가 없을 경우, 혹은 처음 release 노트 생성할 때 base 태그가 없다면 `v0.1.0`으로 생성됩니다. 따라서 release 노트 생성 시 필요하다면 tag를 수정해주어야 합니다.
 
 ## Workflows - .github/workflows/drafter.yaml
 
