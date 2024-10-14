@@ -1,3 +1,6 @@
+# Do not run in VSCode console.
+# mac : brew install python-tk@3.11
+
 import tkinter as tk
 import time
 
