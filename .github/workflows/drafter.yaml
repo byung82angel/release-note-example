@@ -17,3 +17,13 @@ jobs:
         config-name: drafter-config.yaml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: 🚀 Publish Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ steps.release_notes.outputs.tag_name }}  # ✅ 자동 생성된 태그 사용
+        name: "🚀 릴리즈 ${{ steps.release_notes.outputs.tag_name }}"
+        draft: false  # ✅ 정식 릴리즈로 만들기
+        prerelease: false
+        body: ${{ steps.release_notes.outputs.body }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
