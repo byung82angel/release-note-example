@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Release
+      id: release_notes
       # reference : https://github.com/release-drafter/release-drafter
       uses: release-drafter/release-drafter@v6
       with:
@@ -26,4 +27,4 @@ jobs:
         prerelease: false
         body: ${{ steps.release_notes.outputs.body }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
