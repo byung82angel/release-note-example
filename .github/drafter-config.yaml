@@ -1,32 +1,60 @@
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
-commitish: main
+name-template: "🚀 릴리즈 v$NEXT_PATCH_VERSION"
+tag-template: "v$NEXT_PATCH_VERSION"
+
 categories:
-  - title: '🚀 Features'
+  - title: "✨ 신규 기능 추가"
     labels:
-      - 'feature'
-      - 'enhancement'
-  - title: '🐛 Bug Fixes'
+      - "feat"
+      - "feature"
+      - "enhancement"
+
+  - title: "🐛 버그 수정"
     labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
-  - title: '🧰 Maintenance'
-    label: 'chore'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+      - "bug"
+      - "fix"
+
+  - title: "🛠 코드 개선 및 리팩토링"
+    labels:
+      - "improvement"
+      - "refactor"
+
+  - title: "🚀 성능 최적화"
+    labels:
+      - "performance"
+      - "optimization"
+
+  - title: "🔧 설정 및 환경 변경"
+    labels:
+      - "config"
+      - "settings"
+
+  - title: "📦 라이브러리 및 의존성 업데이트"
+    labels:
+      - "dependencies"
+      - "library"
+
+  - title: "📄 문서 및 가이드 업데이트"
+    labels:
+      - "docs"
+      - "documentation"
+
+  - title: "🛑 호환성 깨짐 (Breaking Changes)"
+    labels:
+      - "breaking-change"
+      - "BREAKING CHANGE"
+      - "breaking"
+
+change-template: "- 🔹 $TITLE (#$NUMBER) by @$AUTHOR"
+change-title-escapes: '\<*_&'
+
 version-resolver:
   major:
-    labels:
-      - 'major'
+    labels: [ "breaking", "BREAKING CHANGE", "breaking-change" ]  # 🚨 **주요 변경 사항 (Major)**
   minor:
-    labels:
-      - 'minor'
+    labels: [ "feat", "feature", "enhancement" ]  # 🚀 **새로운 기능 (Minor)**
   patch:
-    labels:
-      - 'patch'
-  default: patch
-template: |
-  ## Changes
+    labels: [ "fix", "bug", "chore", "refactor", "performance", "style", "dependencies", "docs", "config", "settings" ]  # 🛠 **버그 수정 및 개선 (Patch)**
 
+template: |
+  ## 🚀 이번 릴리즈 변경 사항
   $CHANGES
