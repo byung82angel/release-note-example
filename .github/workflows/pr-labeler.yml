@@ -1,18 +1,27 @@
-name: PR Labeler
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    types: [opened]
+    types: [opened, reopened, synchronize]  # ✅ PR이 열리거나 업데이트될 때 실행
+  pull_request_target:
+    types: [opened, reopened, synchronize]  # ✅ 포크된 PR에도 적용 (필요 시)
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write  # ✅ PR 관련 작업 허용
 
 jobs:
-  pr-labeler:
-    permissions:
-      contents: read # for TimonVS/pr-labeler-action to read config file
-      pull-requests: write # for TimonVS/pr-labeler-action to add labels in PR
+  update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: TimonVS/pr-labeler-action@v5
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📝 Generate Release Notes
+        uses: release-drafter/release-drafter@v6  # ✅ 최신 버전 사용
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          commitish: main
+          config-name: drafter-config.yaml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

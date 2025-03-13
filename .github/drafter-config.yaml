@@ -1,5 +1,6 @@
 name-template: "🚀 릴리즈 v$NEXT_PATCH_VERSION"
 tag-template: "v$NEXT_PATCH_VERSION"
+target-branch: "main"  # ✅ 브랜치 설정 추가
 
 categories:
   - title: "✨ 신규 기능 추가"
