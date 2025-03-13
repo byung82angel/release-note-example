@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 📝 Generate Release Notes
-        uses: release-drafter/release-drafter@v6.2.0  # ✅ 최신 버전 사용
+        uses: release-drafter/release-drafter@v6  # ✅ 최신 버전 사용
         with:
           config-name: release-drafter.yml
         env:
