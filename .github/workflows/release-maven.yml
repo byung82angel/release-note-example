@@ -2,10 +2,8 @@ name: Build & Deploy with Release Drafter
 
 on:
   release:
-    types:
-      - created  # ✅ Draft 상태에서도 실행
-      - published # ✅ 정식 배포 시 실행
-
+    types: [created, published, edited, prereleased]
+    
 permissions:
   contents: write
   packages: write
