@@ -1,8 +1,8 @@
-# name: Draft new release
-# on:
-#   push:
-#     branches:
-#       - main
+name: Draft new release
+on:
+  push:
+    branches:
+      - main
 # jobs:
 #   build:
 #     permissions:
