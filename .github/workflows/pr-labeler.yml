@@ -21,6 +21,6 @@ jobs:
       - name: 📝 Generate Release Notes
         uses: release-drafter/release-drafter@v6  # ✅ 최신 버전 사용
         with:
-          config-name: release-drafter.yml
+          config-name: drafter-config.yaml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
