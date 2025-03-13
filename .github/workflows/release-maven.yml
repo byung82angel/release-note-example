@@ -1,0 +1,31 @@
+name: Build & Deploy with Release Drafter
+
+on:
+  release:
+    types:
+      - created  # ✅ Draft 상태에서도 실행
+      - published # ✅ 정식 배포 시 실행
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🏷️ Get Release Tag
+        id: get_tag
+        run: |
+          TAG_NAME=${{ github.event.release.tag_name }}
+          if [[ "${{ github.event.release.draft }}" == "true" ]]; then
+            TAG_NAME="${TAG_NAME}-SNAPSHOT"
+          fi
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+          echo "TAG_NANE: $TAG_NAME"
+          
+
